@@ -1,0 +1,288 @@
+/*.header
+{
+  text-align: center;
+  background-color: rgb(68, 151, 252);
+  padding: 0%;
+  border: 0ch;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+}*/
+
+/* .carousel-inner img {
+  width: 100%;
+  height: 250px;
+}
+
+.carousel-inner .carousel-item>img {
+  -webkit-animation: thing 6s;
+  -o-animation: thing 6s;
+  animation: thing 6s;
+}
+
+@keyframes thing {
+  from {
+      transform: scale(1, 1);
+  }
+
+  to {
+      transform: scale(1.1, 1.1);
+  }
+} */
+.main{
+  background-color: rgb(204, 224, 233);
+}
+.container-fluid
+{
+  background-color: white;
+  text-align: center;
+}
+.text-center1
+{
+  color: rgb(91, 91, 237);
+}
+
+.text-center3
+{
+  color: red;
+}
+.grid-container1 {
+  display: grid;
+  background-color: rgb(204, 224, 233);;
+grid-template-columns: 3fr 3fr;
+grid-gap: 40px;
+width: 800px;
+height: 90%;
+
+}
+
+
+.grid-child2
+{
+  width:500px;
+  text-align:'justify';
+  padding:30px;
+  background-color: rgb(204,224,233);
+ 
+}
+
+.heading
+{
+  background-color:rgb(88, 194, 244);
+  width:230px;
+  padding:10px;
+  height:50px;
+  font-size:20px;
+  box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.buttonW
+{
+  width:100px;
+  height: 40px;
+  font-size: 20px;
+  background-color:rgb(77, 163, 249) ;
+  box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border:0ch;
+}
+
+.dropzone
+{
+  border:4px dashed rgba(15, 102, 231, 0.5);
+  border-radius: 10px;
+  height: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  
+}
+
+.dropzone.active
+{
+  border-color: rgb(28, 27, 27);
+}
+.box
+{
+  height: 40px;
+  font-size: 20px;
+}
+
+.grid-container {
+  display: grid;
+  padding: 15px;
+  margin-top: 2cm;
+  margin-left: 3cm;
+ 
+  grid-template-columns: 3fr 3fr;
+  grid-gap: 40px;
+  width: 1100px;
+  height: 500px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.grid-child1{
+
+  padding: 10px;
+  width: 500px;
+  height: 450px;
+  display:inline-block;
+  vertical-align:middle;
+
+  line-height:30px;
+  
+}
+
+.text-left
+{
+  margin-top: 0%;
+  font-size: 30px;
+  height: 40px;
+  box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  color:orangered;
+}
+
+.text-left1
+{
+  margin-top: 0%;
+  font-size: 30px;
+  height: 40px;
+  box-shadow:0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  background-color: rgb(204, 224, 233);
+  color:orangered;
+}
+
+.divScroll
+{
+   font-size: larger;
+    overflow-y:scroll;
+    outline-offset: 10cm;
+    margin-top: 0.5cm;
+    height:80%;
+    width:100%;
+    background-color: rgb(255, 255, 255);
+    padding: 6px;
+}
+
+.buttonD
+{
+  border: 0ch;
+  border-radius: 1cm;
+  margin-right: 0cm;
+  
+  
+}
+.buttonR1
+{
+  background-color:#39A2DB;
+  margin-left:3cm;
+  padding:10px;
+  outline-offset: 20cm;
+  border: 0ch;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  height: 39px;
+  font-size: 20px;
+}
+
+.buttonR2
+{
+  background-color: #39A2DB;
+  
+  padding:10px;
+  outline-offset: 20cm;
+  border: 0ch;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  height: 39px;
+  font-size: 20px;
+}
+
+.buttonR3
+{
+  background-color: #39A2DB;
+  margin-left: 6.4cm;
+  padding:10px;
+  outline-offset: 20cm;
+  border: 0ch;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  height: 39px;
+  font-size: 20px;
+}
+.file{
+  margin-left:0.2cm;
+}
+
+
+
+.remainder
+{
+   margin-top: 15px;
+   color: black;
+  
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/*.Tabs {
+  width: 100%;
+  margin-top: 0%;
+  padding: 2rem 1rem;
+  color: #040505;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  
+}*/
+ 
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+ 
+.react-tabs__tab-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+ 
+.react-tabs__tab {
+  font-size: larger;
+  width: 100%;
+  padding: 1rem;
+  list-style: none;
+  text-align: center;
+  cursor: pointer;
+}
+ 
+.react-tabs__tab--selected {
+  background: #39A2DB;
+}
+ 
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+ 
+.react-tabs__tab:hover {
+  background: rgba(16, 20, 236, 0.15);
+}
+ 
+.react-tabs__tab:first-child {
+  margin-left: 0ch;
+  /*border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;*/
+}
+ 
+/*.react-tabs__tab:last-child {
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+}*/
+ 
+.react-tabs__tab-panel {
+  display: none;
+}
+ 
+.react-tabs__tab-panel--selected {
+  display: block;
+  font-size: 7rem;
+  text-align: center;
+}

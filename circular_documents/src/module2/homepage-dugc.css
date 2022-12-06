@@ -1,0 +1,252 @@
+#body {
+    background-color: black;
+    padding: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    background-color: white;
+    /* rgb(233, 217, 217); */
+}
+
+#main-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(204, 224, 233);
+    border: 3px solid;
+    border-radius: 30px;
+    height: 95vh;
+    position: relative;
+}
+
+#nav-bar {
+    position: absolute;
+    top: 10px;
+    display: block;
+    box-shadow: 2px 2px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: auto;
+    right: auto;
+    padding-bottom: -50px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    padding: 5px;
+}
+
+#page-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 300px;
+}
+
+#user {
+    border-radius: 100px;
+    position: absolute;
+    top: 10px;
+    right: 120px;
+    background-color: burlywood;
+    box-shadow: 2px 2px;
+    cursor: pointer;
+}
+
+.modal-container {
+    background-color: rgba(222, 184, 135, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+}
+
+.modal-container.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#modal {
+    background-color: burlywood;
+    border-radius: 10px;
+    padding: 30px 50px;
+    box-shadow: 10px 10px 40px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+
+#close {
+    border-radius: 10px;
+    background-color: burlywood;
+    box-shadow: 2px 2px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#table {
+    padding-top: 50px;
+    height: 500px;
+    width: 75%;
+}
+
+#logout {
+    border-radius: 100px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: burlywood;
+    box-shadow: 2px 2px;
+    cursor: pointer;
+}
+
+#user-container {
+    background-color: black;
+    z-index: 1;
+    opacity: 1.0;
+}
+
+#user-credential {
+    /* position: absolute;
+    top: 50px;
+    right: 10px; */
+    border-radius: 10px;
+    box-shadow: 2px 2px;
+}
+
+#contents {
+    display: inline-block;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    width: 100%;
+    /* z-index: 1; */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#selections {
+    float: left;
+    width: 25%;
+    height: 50vh;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.select-option {
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(204, 224, 233);
+    height: 5vh;
+    font-size: large;
+    box-shadow: 2px 2px;
+}
+
+.select-option:hover,
+.select-option:focus {
+    outline: none;
+    border: 2px solid black;
+}
+
+#options-btn {
+    border-radius: 10px;
+    background-color: rgb(228, 89, 89);
+    box-shadow: 2px 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: larger;
+    color: white;
+}
+
+#analysis {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 70vh;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px;
+    overflow-y: auto;
+}
+
+#select-division {
+    height: 5vh;
+    width: 20vh;
+    font-size: medium;
+}
+
+#download-excel {
+    border-radius: 10px;
+    height: 5vh;
+    width: 20vh;
+    font-size: medium;
+}
+
+#misc-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+/* For Graph Only */
+#average {
+    display: flex;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+#chart-container {
+    background-color: white !important;
+    ;
+}
+
+#options-list {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    margin-bottom: 5px;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    font-size: medium;
+}
+.division-btn {
+    font-size: medium;
+}
