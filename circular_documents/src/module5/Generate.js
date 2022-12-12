@@ -7,60 +7,11 @@ import axios from 'axios';
 
 //options for sem 
 const Sem = [
-  { label: "1", value: 1 },
-  { label: "2", value: 2 },
   { label: "3", value: 3 },
   { label: "4", value: 4 },
   { label: "5", value: 5 },
 ];
 
-const Course11 = [
-  {
-    label: 'BASIC ELECTRICAL ENGINEERING',
-    value: 'BASIC ELECTRICAL ENGINEERING',
-  },
-  { label: 'ENGINEERING MECHANICS', value: 'ENGINEERING MECHANICS' },
-  { label: 'SINGLE VARIABLE CALCULUS', value: 'SINGLE VARIABLE CALCULUS' },
-  {
-    label: 'ENGINEERING PHYSICS',
-    value: 'ENGINEERING PHYSICS',
-  },
-  {
-    label: 'DESIGN THINKING FOR SOCIAL INNOVATION',
-    value: 'DESIGN THINKING FOR SOCIAL INNOVATION',
-  },
-  {
-    label: 'C PROGRAMMING FOR PROBLEM SOLVING',
-    value: 'C PROGRAMMING FOR PROBLEM SOLVING',
-  }
-]
-const Course12 = [
-  {
-    label: 'PROBLEM SOLVING WITH DATA STRUCTURES',
-    value: 'PROBLEM SOLVING WITH DATA STRUCTURES',
-  },
-  { label: 'MULTIVARIABLE CALCULUS', value: 'MULTIVARIABLE CALCULUS' },
-  {
-    label: 'BASIC MECHANICAL ENGINEERING  ',
-    value: 'BASIC MECHANICAL ENGINEERING  ',
-  },
-  {
-    label: 'PROFESSIONAL COMMUNICATION',
-    value: 'PROFESSIONAL COMMUNICATION',
-  },
-  {
-    label: 'BASIC ELECTRONICS',
-    value: 'BASIC ELECTRONICS',
-  },
-  {
-    label: 'ENGINEERING CHEMISTRY',
-    value: 'ENGINEERING CHEMISTRY',
-  },
-  {
-    label: 'ENGINEERING EXPLORATION',
-    value: 'ENGINEERING EXPLORATION',
-  },
-]
 const Course13 = [
   {
     label: 'GRAPH THEORY AND LINEAR ALGEBRA',
@@ -127,8 +78,6 @@ const Course15 = [
 
 
 const courseArray = [
-  Course11,
-  Course12,
   Course13,
   Course14,
   Course15,
@@ -141,6 +90,7 @@ const Generate = props => {
 
   const handleChange1 = (value) => {
     setSemester(value)
+    localStorage.setItem("sem", value);
   }
   const handleChange2 = (value) => {
     setCourse(value)
@@ -170,25 +120,38 @@ const Generate = props => {
       console.log(err);
     });
 
-    var config1 = {
-      method: 'post',
-      url: 'http://localhost:1999/courseCoordinator',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      data : {
-        courseData : course,
-        semData:semester
-      }
-    };
+    // var config1 = {
+    //   method: 'post',
+    //   url: 'http://localhost:1999/courseCoordinator',
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   data : {
+    //     courseData : course,
+    //     semData:semester
+    //   }
+    // };
 
-    axios(config1).then((response)=>{
-      console.log(response);
-    }).catch(err=>{
-      console.log(err);
-    })
-    navigate("/Dashboard", {state:{courseDetails: courseArray[semester-1]}});
+    // axios(config1).then((response)=>{
+    //   console.log(response);
+    // }).catch(err=>{
+    //   console.log(err);
+    // })
+    navigate("/Dashboard", {state:{courseDetails: courseArray[semester-3], semVal: semester, courseVal: course}});
   }
+
+  const getRole = () => {
+    return localStorage.getItem("role") ? localStorage.getItem("role") : "coordinator" 
+  }
+
+  function handleSubmit1(e){
+    e.preventDefault();
+    localStorage.setItem("sem", semester);
+    navigate("/Dashboard1")
+  }
+
+  const [role, setRole] = useState(getRole())
+
   return (
     <div id="abc">
       <div className='img'>
@@ -201,21 +164,31 @@ const Generate = props => {
             handleChange1(item.value)
           }}/>
         </div>
-        <div className='courses'>
+        {
+          role && role !== "dugc" ? <div className='courses'>
           <h3 class="component">Course</h3>
-          <Select className="course" placeholder="Course" options={courseArray[semester-1]} 
+          <Select className="course" placeholder="Course" options={courseArray[semester - 3]} 
           onChange={(item) => {
             handleChange2(item.value)
           }
           }
            />
-        </div>
+        </div> : null
+        }
+        
       </div>
       <div className='submitform'>
       <form>
-          <h3 style={{padding:"25px"}}>Please Select a file to Upload</h3>
+      {
+        role && role !=="dugc"?<div class="container">
+      <h3 style={{padding:"25px"}}>Please Select a file to Upload</h3>
           <input type="file" onChange={handleChange}/>
           <button onClick={handleSubmit} className="btn btn-primary">Upload</button>
+      </div>: <div class="conainer">
+        <button onClick={handleSubmit1} className="btn btn-primary">Next</button>
+      </div>
+      }
+
         </form>
         </div>
     </div>

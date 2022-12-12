@@ -29,14 +29,16 @@ import React from "react";
     upass:"",
     urole:""
   });
-  const [Crole,setRole] = useState();
-  const [Drole,setDrole]=useState();
+  const [Crole,setRole] = useState("");
+  const [Drole,setDrole]=useState("");
+
+  // const [role, setRole]
   const dropdownoption =(value) =>{
     if(value=='Coordinator'){
     setRole(value);
     }
     else{
-      setDrole(value);
+      setRole(value);
     }
   }
   //capturing the values of input from login form
@@ -59,19 +61,21 @@ import React from "react";
     setFormErrors(validate(formValues));
     setIsSubmit(true);
     
-    axios.post('http://localhost:8080/login', {
+    axios.post('http://localhost:1999/login', {
       uemail:inputs.uemail,
       upass:inputs.upass,
       urole:inputs.urole
     }).then(res =>{
       setIsLoggedin(true);
       localStorage.setItem('token-info',JSON.stringify(formValues));
-      if(Crole==="Coordinator"){
+      if(Crole=="Coordinator"){
+      localStorage.setItem('role', "coordinator")
+      }
+      else if(Crole=="DUGC Member"){
+        localStorage.setItem('role', "dugc")
+      }
       navigate("/Generate");
-      }
-      else if(Drole==="DUGC Member"){
-        navigate("/Dashboard1");
-      }
+
     }).catch(err=>{
      setLoginErr("Invalid Username or password");
     })
@@ -101,10 +105,10 @@ import React from "react";
     <img className="" src={pic} />
     </div>
       <form ref={form} className="begin">
-       <h1>Login</h1>
+       {/* <h1>Login</h1> */}
         <div className="ui divider"></div>
         <div className="ui form">
-          <div className="field">
+          <div className="field" >
             <label>Username</label>
             <input
               type="text"
@@ -118,7 +122,7 @@ import React from "react";
           </div>
           <div class="field">
           <label>Role</label>
-  <Select className="course1" name="urole" placeholder="Please Select a Role" options={roles} 
+  <Select styles={{padding:"5px", width:"16.5rem"}} className="course1" name="urole" placeholder="Please Select a Role" options={roles} 
   onChange={(item) => {
     dropdownoption(item.value)
   }
@@ -137,6 +141,7 @@ import React from "react";
               required
               autocomplete="off"
             />
+            
           </div>
           <p>{formErrors.email}</p>
             <p>{loginerr}</p>
@@ -150,7 +155,7 @@ import React from "react";
               required
             />
             <p>{loginerr}</p>
-            <button className="fluid ui button blue" onClick={(e) => handleSubmit(e)}>Submit</button>
+            <button className="fluid ui button blue btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
           </div>
           </div>
           </form>

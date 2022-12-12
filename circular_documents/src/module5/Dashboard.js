@@ -12,9 +12,11 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const {state} = useLocation();
   const {courseDetails} = state;
+  const {semVal} = state;
+  const {courseVal} = state
   const generatedata = async () => {
     setGenerate(true);
-    await axios.get("http://localhost:1999/courseCoordinator").then((res) => {
+    await axios.post("http://localhost:1999/courseCoordinator").then((res) => {
       console.log(res.data.data);
       setArray(res.data);
     });
@@ -29,6 +31,8 @@ const Dashboard = () => {
       </div>
       <div>
       <h3 class='ineligible'>Ineligibility list</h3>
+      <h4>Semester: <p>{semVal}</p></h4>
+      <h4>Course: <p>{courseVal}</p></h4>
         <table className="table">
           <thead className="thead-dark">
             <tr>
@@ -62,9 +66,6 @@ const Dashboard = () => {
       </div>
       <button onClick={() => generatedata()} className="btn btn-primary" style={{margin: "1rem"}}>
         Generate the Ineligibility list
-      </button>
-      <button onClick={() => navigateDugc()} className="btn btn-primary">
-        Dugc coordinator
       </button>
     </div>
   );

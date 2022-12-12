@@ -7,6 +7,9 @@ import bodyParser from "body-parser"
 import multer from "multer"
 import path from "path"
 import { fileURLToPath } from 'url';
+import cors from 'cors'
+
+//cookies and filemiddleware
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -18,16 +21,14 @@ const app = express()
 app.use(express.json());
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs')
+app.use(cors())
+
 
 // mongoose.connect("mongodb+srv://bharathkoli:dugcwebsite@cluster0.gw2l6ru.mongodb.net/DUGC");
 
 
 import cookieParser from "cookie-parser"
 
-import cors from 'cors'
-
-//cookies and filemiddleware
-app.use(cors())
 
 app.use(cookieParser())
 
@@ -338,6 +339,7 @@ app.post("/xyz/uploadfile", upload1.single("profile"), (req, res, next) => {
 
 app.post("/login",async (req,res)=>{
     let c=req.body.urole;
+    console.log(req.body);
     let result=await User.findOne({
         email:req.body.uemail,
         password:req.body.upass
@@ -380,9 +382,9 @@ let array = [];
 
 const courseCoordinatorUrl = `/courseCoordinator`;
 console.log(courseCoordinatorUrl);
-app.get(courseCoordinatorUrl, (req, res) => {
-    console.log(coursename);
-    console.log(file1);
+app.post(courseCoordinatorUrl, (req, res) => {
+    // console.log(coursename);
+    // console.log(file1);
     let arr =[]
     CSVToJSON().fromFile(`./build/${file1}`)
         .then(async users => {
@@ -435,7 +437,7 @@ else{
 }
 });
 
-app.get("/dugcCoordinator", (req, res) => {
+app.post("/dugcCoordinator", (req, res) => {
     file.find({}, function(err, foundItems){
         const groupByCategory = foundItems.reduce((group, foundItem) => {
             const { Name } = foundItem;
